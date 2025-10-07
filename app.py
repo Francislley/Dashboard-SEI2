@@ -1,26 +1,12 @@
 import streamlit as st
-#import gspread
-#import pandas as pd
-#import json
+import gspread
+import pandas as pd
+import json
 
 # --- Configurações da Planilha ---
 SPREADSHEET_ID = '171LrxIb7IhCnYTP3rV7WaUGp0_mBaO2pX9cS0va6JJs'
 WORKSHEET_NAME = 'SEI'
 
-#teste de gcp_service
-st.set_page_config(page_title="Teste Simples Secrets", layout="wide")
-st.title("Teste de Acesso a Secret Simples")
-
-try:
-    secret_value = st.secrets["teste_simples"]
-    st.success(f"Secret 'teste_simples' acessado com sucesso! Valor: {secret_value}")
-except KeyError:
-    st.error("Erro: Secret 'teste_simples' NÃO encontrado.")
-    st.info("Verifique a configuração na seção 'Secrets' do Streamlit Cloud.")
-except Exception as e:
-    st.error(f"Ocorreu um erro inesperado ao acessar o secret: {e}")
-
-"""
 # --- Função para Carregar Dados (com cache para performance) ---
 @st.cache_data(ttl=600) # Cache por 10 minutos (600 segundos)
 def load_data():
@@ -116,5 +102,3 @@ if not df_sei.empty:
 
 else:
     st.warning("Não foi possível exibir o dashboard pois os dados não foram carregados.")
-"""
-
