@@ -1,1 +1,3 @@
 *.json
+*.toml
+.streamlit/secrets.toml
